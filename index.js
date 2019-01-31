@@ -9,7 +9,11 @@ const port = process.env.PORT || 3000;
 //middlewares
 app.use(morgan('dev'));
 app.use(expresss.json())
-
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
 //routes
 const userRouter = require('./routes/user.routes');
 const categoryRouter = require('./routes/category.routes');

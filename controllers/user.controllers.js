@@ -33,7 +33,8 @@ userController.signIn = (req,res) =>{
 
             if(response){
                 req.user = user;
-                return res.status(200).send({ message:' Te has logueado correctamente', token: service.createToken(user)})
+                const userCustomer = {id:user._id,email:user.email,displayName:user.displayName}
+                return res.status(200).send({token: service.createToken(user),user:userCustomer})
             }else{
                 return res.status(404).send({ message:'Contraseña incorrecta '});
             }
@@ -41,7 +42,7 @@ userController.signIn = (req,res) =>{
         } ).catch(err => {
                return res.status(err.status).send({ message:err.message} )
         })
-    }).select('email _id password')
+    }).select('email _id password displayName')
 }
 
 module.exports = userController;
