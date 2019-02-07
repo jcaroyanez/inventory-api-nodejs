@@ -27,7 +27,7 @@ categoryController.add = (req,res) =>{
 
 categoryController.update = (req,res) => {
     const name = req.body.name;
-    const id = req.body.id;
+    const id = req.body._id;
     
     Category.findOne({name,_id:{$ne:id}},(err,response) => {
         if(err) return res.status(500).send( {message:`Error al actualizar la categoria ${err}`} )
