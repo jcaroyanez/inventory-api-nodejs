@@ -15,7 +15,9 @@ app.use(cors);
 const userRouter = require('./routes/user.routes');
 const categoryRouter = require('./routes/category.routes');
 const productRouter = require('./routes/product.routes')
-app.use('/api',[userRouter,categoryRouter,productRouter])
+const statsRouter = require('./routes/stats.routes');
+
+app.use('/api',[userRouter,categoryRouter,productRouter,statsRouter])
 
 app.listen(port , () => {
     console.log('server run on port 3000')
