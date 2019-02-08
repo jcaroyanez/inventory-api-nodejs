@@ -49,7 +49,7 @@ categoryController.getAll = (req,res) => {
 
         return res.status(200).send(categorys);
 
-    })
+    }).sort({created_at:-1})
 }
 
 categoryController.deleted = (req,res) => {

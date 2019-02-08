@@ -5,7 +5,7 @@ const { Schema } = mongoose;
 const categorySchema = new Schema({
     name:{ type:String, unique:true },
     deleted:{ type:Number, default: 0 },
-    crated_at:{ type:Date, default:moment.now() },
+    created_at:{ type:Date, default:moment.now() },
     update_at:{ type:Date }
 })
 
